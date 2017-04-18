@@ -1,13 +1,13 @@
-import { types } from '../actions/counter'
+import { add } from '../actions/feeds'
 
 var defaultState = {
-  number: 0
+  list: []
 }
 
 export default function reduce (state = defaultState, action) {
   switch (action.type) {
-    case types.COUNT:
-      return { number: state.number + 1 }
+    case add:
+      return { list: state.list.concat(action.feed) }
     default:
       return state
   }
